@@ -61,3 +61,33 @@ npm run dev
 6. Abre la URL http://localhost:3000 en tu navegador web
 
 ![screenshot](public/screenshot.png)
+
+
+## Configuración
+
+Tal como se muestra más abajo, he establecido los valores para:
+
+- `nextConfig.images.remotePatterns`
+- `nextConfig.experimental.serverActions.bodySizeLimit`
+
+
+La configuración del archivo **`next.config.mjs`** es la siguiente:
+
+
+```js
+/** @type {import('next').NextConfig} */
+
+const nextConfig = {
+ reactCompiler: true,
+ images: {
+   remotePatterns: [new URL('https://res.cloudinary.com/jamj2000/image/upload/**')],
+ },
+ experimental: {
+   serverActions: {
+     bodySizeLimit: '4mb',
+   },
+ },
+};
+
+export default nextConfig;
+```

@@ -2,6 +2,7 @@ import "@/app/globals.css";
 import { Geist } from "next/font/google";
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main className='grow p-4'> {children} </main>
         <Footer />
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );

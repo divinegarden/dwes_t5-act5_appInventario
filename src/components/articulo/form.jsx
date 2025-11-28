@@ -1,29 +1,30 @@
 'use client'
-import { useActionState, useEffect, useRef } from "react"
+import { useActionState, useEffect, useId } from "react"
 import Imagen from "../imagen"
+import { toast } from "sonner"
 
 
 
 export default function Form({ action, title, articulo, disabled = false }) {
-    const formRef = useRef(null)
+    const formId = useId()
     const [state, faction, pending] = useActionState(action, {})
 
 
     useEffect(() => {
         if (state?.success) {
-            // toast.success(state.success)
-            formRef.current.closest('dialog')?.close()
+            toast.success(state.success)
+            document.getElementById(formId).closest('dialog')?.close()
         }
-    }, [state])
+    }, [state, formId])
 
 
     return (
-        <form ref={formRef} action={faction} className="flex flex-col">
+        <form id={formId} action={faction} className="flex flex-col">
             <input type='hidden' name='id' value={articulo?.id} />
 
             <h1 className="uppercase text-center text-xl">{title}</h1>
 
-            <fieldset disabled={disabled} className="grid place-items-center md:grid-cols-[160px_1fr] gap-4">
+            <fieldset disabled={disabled} className="grid place-items-center md:grid-cols-[30%_1fr] gap-4">
                 <Imagen src={articulo?.imagen ?? '/imagen.png'} />
 
                 <div className="flex flex-col py-4 w-full">

@@ -16,12 +16,10 @@ function Imagen({ src }) {
                 id='imgPreview'
                 src={src}
                 alt="imagen"
-                width={240}
-                height={240}
                 onDrop={dropHandler}
                 onDragOver={dragOverHandler}
                 onDoubleClick={dblclickHandler}
-                className='object-cover object-center'
+                className='w-xs object-cover object-center'
             />
             <input type='file'
                 name='file'
