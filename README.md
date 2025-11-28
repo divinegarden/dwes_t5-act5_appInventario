@@ -29,13 +29,14 @@ Se han definido manejadores para varios eventos. Por ejemplo, es posible arrastr
 
 También se puede hacer doble clic en la imagen, y nos aparecerá el explorador de archivos para seleccionar la imagen a subir.
 
-**Se usa un esqueleto de precarga CSS para los artículos**.
+**Se usan técnicas novedosas para la carga de información**.
 
-La página que muestra la lista de artículos hace uso de un esqueleto de precarga CSS para mejorar la experiencia del usuario.
+Se hace uso del componente **`Suspense`** con la propiedad `fallback` para mostrar un mensaje mientras se obtiene la información desde la base de datos.
 
-También se hace uso del componente `Suspense` de `react` para evitar la carga inicial de la página.
+Para comprobar que lo anterior funciona bien, se ha introducción un retardo artificial en la recuperación de datos de la BD.
 
-Por último, para comprobar que lo anterior funciona bien, se ha introducción un retardo artificial en la recuperación de datos de la BD.
+Dentro de `Suspense` al **componente del lado cliente** se le pasan los datos en forma de **promesa**. Este componente gestiona la promesa con la función **[`use()`](https://react.dev/reference/react/use)**. De esta manera conseguimos *reducir la distancia entre el lado servidor y el lado cliente* de nuestra aplicación.
+
 
 ## Si deseas probar la applicación ...
 
