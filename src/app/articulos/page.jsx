@@ -3,12 +3,14 @@ import { getArticulos } from '@/lib/data'
 import { createArticulo } from '@/lib/actions'
 import ListaArticulos from '@/components/articulos/lista'
 import Modal from '@/components/modal'
-import Form from '@/components/articulo/form'
+import Form from '@/components/articulos/form'
 
 
 
 
 export default function PaginaArticulos() {
+
+    const promesaArticulos = getArticulos()
 
     return (
         <section>
@@ -23,7 +25,8 @@ export default function PaginaArticulos() {
 
 
             <Suspense fallback="Recuperando lista de artículos...">
-                <ListaArticulos data={getArticulos()} />  {/* Pasamos promesa */}
+                <ListaArticulos promesaArticulos={promesaArticulos} />
+                {/* <ListaArticulos data={getArticulos()} />  Pasamos promesa */}
             </Suspense>
         </section>
     )

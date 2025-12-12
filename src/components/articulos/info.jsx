@@ -4,8 +4,8 @@ import { use } from "react"
 
 
 
-export default function InfoArticulo({ data }) {
-    const articulo = use(data)  // Resolvemos promesa
+export default function InfoArticulo({ promesaArticulo }) {
+    const articulo = use(promesaArticulo)  // Resolvemos promesa
     if (!articulo) notFound()
 
     return (

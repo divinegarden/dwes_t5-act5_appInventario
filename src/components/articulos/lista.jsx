@@ -2,14 +2,14 @@
 import { use } from "react"
 
 import Modal from "@/components/modal"
-import Form from "@/components/articulo/form"
+import Form from "@/components/articulos/form"
 
 import { updateArticulo, deleteArticulo } from "@/lib/actions"
 import Link from "next/link"
 
 
-export default function ListaArticulos({ data }) {
-    const articulos = use(data)   // Resolvemos promesa
+export default function ListaArticulos({ promesaArticulos }) {
+    const articulos = use(promesaArticulos)   // Resolvemos promesa
 
     return (
         <div className="flex flex-wrap gap-4">
