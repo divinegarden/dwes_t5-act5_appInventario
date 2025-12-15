@@ -4,7 +4,7 @@ function Navbar() {
     return (
         <nav className="flex justify-between text-2xl p-2 bg-blue-200 font-bold">
             <div className="flex gap-4">
-                <Link href="/">Inicio</Link>
+                <Link href="/">🏠</Link>
                 <Link href="/articulos">Artículos</Link>
             </div>
             <div>

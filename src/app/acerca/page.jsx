@@ -1,8 +1,12 @@
+import BackButton from "@/components/backbutton"
+
 function page() {
     return (
         <section>
-            <h1>Acerca de ...</h1>
-            <hr />
+            <div className='flex gap-4 items-center mb-4'>
+                <BackButton />
+                <h1 className='grow text-2xl pb-2 border-b-2 border-blue-400'>Acerca de ... </h1>
+            </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <p>

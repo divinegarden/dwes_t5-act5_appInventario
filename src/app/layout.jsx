@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={`${geistSans.variable} flex flex-col min-h-screen antialiased`} >
         <Navbar />
-        <main className='grow p-4'> {children} </main>
+        <main className='grow p-4 font-sans'> {children} </main>
         <Footer />
         <Toaster position="top-right" richColors />
       </body>

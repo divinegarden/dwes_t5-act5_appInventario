@@ -5,7 +5,7 @@ import {
     dragOverHandler,
     dropHandler
 } from '@/lib/eventos'
-import Image from 'next/image'
+
 
 
 
@@ -19,7 +19,7 @@ function Imagen({ src }) {
                 onDrop={dropHandler}
                 onDragOver={dragOverHandler}
                 onDoubleClick={dblclickHandler}
-                className='w-xs object-cover object-center'
+                className='size-[200px] object-cover object-center'
             />
             <input type='file'
                 name='file'

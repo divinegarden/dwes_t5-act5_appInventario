@@ -1,11 +1,13 @@
 'use client'
 import { notFound } from "next/navigation"
 import { use } from "react"
+import { Suspense } from "react"
 
 
 
-export default function InfoArticulo({ promesaArticulo }) {
+export default function InfoArticulo({ promesaArticulo, promesaPrueba }) {
     const articulo = use(promesaArticulo)  // Resolvemos promesa
+
     if (!articulo) notFound()
 
     return (
@@ -20,3 +22,8 @@ export default function InfoArticulo({ promesaArticulo }) {
     )
 }
 
+
+export function Prueba({ promesaPrueba }) {
+    const prueba = use(promesaPrueba)
+    return <p>{prueba.success}</p>
+}

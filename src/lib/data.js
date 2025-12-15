@@ -20,12 +20,28 @@ export async function getArticulos() {
 }
 
 
+export async function getPrueba() {
+    try {
+        // Retardo artificial para fines demostrativos.
+        // No realizar en la vida real :)
+        console.log('Recuperando prueba...');
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+
+        return { success: 'Este mensaje tarda 3 segundos en llegar' };
+    } catch (error) {
+        // console.log(error);  
+        return null;
+    }
+}
+
+
+
 
 export async function getArticulo(id) {
     try {
         // Retardo artificial para fines demostrativos.
         // No realizar en la vida real :)
-        console.log('Recuperando artículos...');
+        console.log('Recuperando artículo...');
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
         const results = await db.query('select * from articulos where id=?', [id]);

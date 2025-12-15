@@ -1,6 +1,6 @@
 'use client'
 import { useActionState, useEffect, useId } from "react"
-import Imagen from "../imagen"
+import Imagen from "@/components/image"
 import { toast } from "sonner"
 
 
