@@ -142,10 +142,10 @@ export async function createProveedor(prevState, formData) {
     // si tenemos nuevo archivo en el input type=file
     if (file.size > 0) {
       const imagen = await imgCreate(file)
-      query = 'insert into proveedores(nombre,descripcion,imagen) values (?, ?, ?, ?)';
+      query = 'insert into proveedores(nombre,descripcion,imagen) values (?, ?, ?)';
       results = await db.query(query, [nombre, descripcion, imagen]);
     } else {
-      query = 'insert into proveedores(nombre,descripcion) values (?, ?, ?)';
+      query = 'insert into proveedores(nombre,descripcion) values (?, ?)';
       results = await db.query(query, [nombre, descripcion]);
     }
     // console.log(results);
