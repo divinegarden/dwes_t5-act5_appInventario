@@ -6,6 +6,7 @@ function Navbar() {
             <div className="flex gap-4">
                 <Link href="/">🏠</Link>
                 <Link href="/articulos">Artículos</Link>
+                <Link href="/proveedores">Proveedores</Link>
             </div>
             <div>
                 <Link href="/acerca">Acerca de ...</Link>

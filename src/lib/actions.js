@@ -44,11 +44,13 @@ R: READ   -> getArticulos
 U: UPDATE -> updateArticulo
 D: DELETE -> deleteArticulo
 
+C: CREATE -> createProveedor
+R: READ   -> getProveedores
+U: UPDATE -> updateProveedor
+D: DELETE -> deleteProveedor
 */
 
-
-
-
+// Articulos
 
 export async function createArticulo(prevState, formData) {
   const nombre = formData.get('nombre');
@@ -120,6 +122,82 @@ export async function deleteArticulo(prevState, formData) {
     // console.log(results);
 
     revalidatePath('/articulos');
+    return { success: 'Operación exitosa' }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Proveedores
+
+export async function createProveedor(prevState, formData) {
+  const nombre = formData.get('nombre');
+  const descripcion = formData.get('descripcion');
+  const file = formData.get('file')
+
+  try {
+    let results = null;
+    let query = null;
+
+    // si tenemos nuevo archivo en el input type=file
+    if (file.size > 0) {
+      const imagen = await imgCreate(file)
+      query = 'insert into proveedores(nombre,descripcion,imagen) values (?, ?, ?, ?)';
+      results = await db.query(query, [nombre, descripcion, imagen]);
+    } else {
+      query = 'insert into proveedores(nombre,descripcion) values (?, ?, ?)';
+      results = await db.query(query, [nombre, descripcion]);
+    }
+    // console.log(results);
+
+    revalidatePath('/proveedores');
+    return { success: 'Operación exitosa' }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
+
+export async function updateProveedor(prevState, formData) {
+  const id = formData.get('id')
+  const nombre = formData.get('nombre')
+  const descripcion = formData.get('descripcion')
+  const file = formData.get('file')
+
+  try {
+    let results = null;
+    const query = 'update proveedores set ? where id = ? ';
+
+    // si tenemos nuevo archivo en el input type=file
+    if (file.size > 0) {
+      const imagen = await imgCreate(file)
+      results = await db.query(query, [{ nombre, descripcion, imagen }, id]);
+    } else {
+      results = await db.query(query, [{ nombre, descripcion }, id]);
+    }
+    // console.log(results);
+
+    revalidatePath('/proveedores');
+    return { success: 'Operación exitosa' }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
+
+export async function deleteProveedor(prevState, formData) {
+  const id = formData.get('id');
+
+  try {
+    const query = 'delete from proveedores where id = ?';
+    const results = await db.query(query, [id]);
+    // console.log(results);
+
+    revalidatePath('/proveedores');
     return { success: 'Operación exitosa' }
   } catch (error) {
     console.log(error);

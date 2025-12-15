@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS tienda;
+
+-- Articulos
+
 DROP TABLE IF EXISTS articulos;
 
 CREATE TABLE articulos (
@@ -36,3 +40,30 @@ INSERT INTO articulos (id, nombre, descripcion, precio) VALUES
 (21, 'Memoria RAM 16GB', 'Memoria DDR4 16GB', 79.99),
 (22, 'Fuente de alimentación', 'Fuente de alimentación 650W', 69.99),
 (23, 'Caja de ordenador', 'Caja ATX con ventilación optimizada', 55.99);
+
+-- Proveedores
+
+DROP TABLE IF EXISTS proveedores;
+
+CREATE TABLE proveedores (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(200) NOT NULL,
+    descripcion VARCHAR(200),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ALTER TABLE proveedores ADD COLUMN imagen VARCHAR(200) AFTER descripcion;
+
+
+INSERT INTO proveedores (id, nombre, descripcion) VALUES
+(1, 'Proveedor Andino', 'Proveedor de productos agrícolas y fertilizantes'),
+(2, 'Distribuidora Norte', 'Distribución de alimentos al por mayor'),
+(3, 'TecnoGlobal S.A.', 'Venta de equipos tecnológicos y electrónicos'),
+(4, 'ConstruMarket', 'Materiales y herramientas para la construcción'),
+(5, 'Logística Express', 'Servicios de transporte y logística nacional'),
+(6, 'Papelería Central', 'Suministros de oficina y papelería'),
+(7, 'Farmadistrib', 'Distribución de productos farmacéuticos'),
+(8, 'EcoProveedores', 'Productos ecológicos y biodegradables'),
+(9, 'Textiles del Sur', 'Fabricación y distribución de textiles'),
+(10, 'Servicios Industriales MX', 'Mantenimiento y servicios industriales');
