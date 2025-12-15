@@ -24,7 +24,7 @@ function Item({ articulo }) {
         <div className="grid sm:grid-cols-[112px_1fr] gap-2 border border-slate-200 bg-slate-100 w-96 p-8 rounded">
             {/* Imagen */}
             <Link prefetch href={`/articulos/${articulo.id}`} className="font-bold text-xl">
-                <img src={articulo.imagen} />
+                <img src={articulo.imagen || '/imagen-vacia.png'} />
             </Link>
 
             <div>
